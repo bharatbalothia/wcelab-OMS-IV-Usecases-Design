@@ -31,3 +31,4 @@ export class InventoryServiceProvider implements Provider<InventoryService> {
     return getService(this.dataSource);
   }
 }
+
