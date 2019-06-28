@@ -1,0 +1,47 @@
+{
+	"info": {
+		"_postman_id": "7bfaff77-b2bd-49c5-92ce-6dc91b89d0a1",
+		"name": "inventory",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "testinventory",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authtoken",
+						"value": "Bearer IvpoiUSEUo56ubaiEiOpoOpNMMbKquTI",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"itemId\" :\"SKU170619\",\n\"unitOfMeasure\": \"EACH\",\n\"productClass\":\"NEW\",\n\"shipNode\":\"jlp1\",\n\"deliveryDate\":\"2019-06-28T21:00:00.000Z\"\n}"
+				},
+				"url": {
+					"raw": "http://158.175.92.249:3001/inventoryAvailability",
+					"protocol": "http",
+					"host": [
+						"158",
+						"175",
+						"92",
+						"249"
+					],
+					"port": "3001",
+					"path": [
+						"inventoryAvailability"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

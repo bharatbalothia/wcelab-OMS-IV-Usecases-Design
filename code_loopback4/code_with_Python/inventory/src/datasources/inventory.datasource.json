@@ -1,0 +1,65 @@
+{
+  "name": "inventory",
+  "connector": "rest",
+  "baseURL": "https://eu-api.watsoncommerce.ibm.com/inventory",
+  "crud": false,
+  "debug": "true",
+  "options": {
+    "headers": {
+      "accept": "application/json",
+      "content-type": "application/json"
+	  
+    }
+  },
+  "operations": [    
+    {
+      "template": {
+        "method": "GET",
+        "url": "https://eu-api.watsoncommerce.ibm.com/inventory/07ec466a/v1/supplies?itemId={itemId}&unitOfMeasure={unitOfMeasure}&productClass={productClass}&shipNode={shipNode}",
+		"headers": {
+			  "accept": "application/json",
+			  "content-type": "application/json",
+			  "Authorization": "{token}"
+			}
+      },
+      "functions": {
+        "getrestsupplydata": ["itemId","unitOfMeasure","productClass","shipNode","token"]
+      }
+    },
+	{
+      "template": {
+        "method": "GET",
+        "url": "https://eu-api.watsoncommerce.ibm.com/inventory/07ec466a/v1/demands?itemId={itemId}&unitOfMeasure={unitOfMeasure}&productClass={productClass}&shipNode={shipNode}",
+		"headers": {
+			  "accept": "application/json",
+			  "content-type": "application/json",
+			  "Authorization": "{token}"
+			}
+      },
+      "functions": {
+        "getrestdemanddata": ["itemId","unitOfMeasure","productClass","shipNode","token"]
+      }
+    },
+	{
+      "template": {
+        "method": "POST",
+        "url": "http://127.0.0.1:5000/inventory/api/v1.0/availability",     
+        "headers": {
+			"accept": "application/json",
+			"content-type": "application/json"
+					},
+		
+		"query": {
+			  "supply": "{supply}",
+			  "demand": "{demand}",
+			  "deliveryDate":"{deliveryDate}",
+			  "currDate":"{currDate}",
+			  "shipNode":"{shipNode}"
+			}
+	},
+      "functions": {
+        "getrestavailabilitydata": ["supply","demand","deliveryDate","currDate","shipNode"]
+      }
+    }
+  ]
+}
