@@ -1,4 +1,4 @@
-quick guide for developers 
+ quick guide for developers 
 1. Install Nodejs (10.5)
 2. Install NPM (6.9)
 3. Install Python (3.7)
